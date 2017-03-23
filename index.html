@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Animation</title>
+        <style media="screen">
+            body {
+                background: #d0d0d0;
+                padding-left: 125px;
+            }
+            .container {
+                position: absolute;
+                background-color: #aef3ff !important;
+                height: 608px;
+                width: 1080px;
+                overflow: hidden;
+            }
+            .road {
+                position: absolute;
+                height: 608px;
+                width: 1080px;
+                top: 0px;
+                left: 0px;
+                z-index: 3
+            }
+            .cloud {
+                position: absolute;
+                width: 2160px;
+                height: 203px;
+                top: 50px;
+                left: 200px;
+                z-index: 2;
+                animation: cloudMove 20s linear infinite;
+            }
+            .sun {
+                position: absolute;
+                width: 114px;
+                height: 117px;
+                top: 20px;
+                left: 20px;
+                z-index: 1;
+            }
+            .truck {
+                position: absolute;
+                width: 197px;
+                height: 118px;
+                top: 450px;
+                left: 1080px;
+                z-index: 4;
+                animation: truckMove1 10s linear, truckMove2 10s linear;
+                animation-delay: 0s, 10s;
+            }
+            .weighing {
+                position: absolute;
+                width: 260px;
+                height: 31px;
+                top: 562px;
+                left: 638px;
+                z-index: 4;
+            }
+            .bubble {
+                opacity: 0;
+                position: absolute;
+                width: 201px;
+                height: 64px;
+                top: 400px;
+                left: 660px;
+                z-index: 4;
+                animation: showMessage1 10s linear, showMessage2 10s linear;
+                animation-delay: 0s, 10s;
+            }
+            .text .allow {
+                opacity: 0;
+                color: green;
+                position: absolute;
+                top: 414px;
+                left: 670px;
+                z-index: 4;
+                animation: showMessage1 10s linear;
+            }
+            .text .not-allow {
+                opacity: 0;
+                color: red;
+                position: absolute;
+                top: 415px;
+                left: 662px;
+                z-index: 4;
+                font-size: 15px;
+                animation: showMessage2 10s linear;
+                animation-delay: 10s;
+            }
+            .stopper-stand {
+                position: absolute;
+                top: 460px;
+                left: 720px;
+                height: 80px;
+                z-index: 4;
+            }
+            .stopper-hand {
+                position: absolute;
+                top: 460px;
+                left: 720px;
+                z-index: 4;
+                height: 30px;
+                transform: rotate(0deg);
+                transform-origin: 10% 20%;
+                animation: openGate 10s linear;
+            }
+            @keyframes cloudMove {
+                0% { left: 0px; }
+                100% { left: -1080px; }
+            }
+            @keyframes truckMove1 {
+                0% { left: -197px; }
+                50% { left: 675px; }
+                75% { left: 675px; }
+                100% { left: 1080px; }
+            }
+            @keyframes truckMove2 {
+                0% { left: -197px; }
+                50% { left: 675px; }
+                100% { left: 675px; }
+            }
+            @keyframes openGate {
+                0% { transform: rotate(0deg); }
+                70% { transform: rotate(0deg); }
+                80% { transform: rotate(-45deg); }
+                100% { transform: rotate(-45deg); }
+            }
+            @keyframes showMessage1 {
+                0% { opacity: 0; }
+                50% { opacity: 0; }
+                51% { opacity: 1; }
+                75% { opacity: 1; }
+                76% { opacity: 0; }
+                100% { opacity: 0; }
+            }
+            @keyframes showMessage2 {
+                0% { opacity: 0; }
+                50% { opacity: 0; }
+                51% { opacity: 1; }
+                100% { opacity: 1; }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img class="road" src="./road.png">
+            <img class="cloud" src="./cloud.png">
+            <img class="sun" src="./sun.png">
+            <img class="stopper-stand" src="./stopper_stand.png">
+            <img class="stopper-hand" src="./stopper_hand.png">
+            <img class="truck" src="./truck.png">
+            <img class="weighing" src="./weighing.png">
+            <img class="bubble" src="./bubble.png">
+            <div class="text">
+                <span class="allow">Weight: 50 Tones. <b>Allowed!</b></span>
+                <span class="not-allow">Weight: 80 Tones. <b>Not Allowed!</b></span>
+            </div>
+        </div>
+    </body>
+</html>
